@@ -22,13 +22,29 @@ document.addEventListener("DOMContentLoaded", function() {
 
 });
 
-/**
+/** 
+ * This is a docstring. Docstrings are great for understanding the functionality 
+ * of the larger part of the code, i.e., the general purpose of any class, module, 
+ * or function, whereas the comments are used for code, statements, and expressions, 
+ * which tend to be small.
  * The main game "loop", called when the script is first loaded
  * and after the user's answer has been processed
  */
+
 function runGame(gameType) {
 
-    // Creates two random numbers between 1 and 25
+/** 
+ * The Math.floor() static method always rounds down and returns the largest integer 
+* less than or equal to a given number.
+* console.log(Math.floor(5.95));
+// Expected output: 5
+
+console.log(Math.floor(5.05));
+// Expected output: 5
+
+* The following creates two random numbers between 1 and 25
+*/
+    
     let num1 = Math.floor(Math.random() * 25) + 1;
     let num2 = Math.floor(Math.random() * 25) + 1;
 
@@ -41,11 +57,41 @@ function runGame(gameType) {
 
 }
 
-function checkAnswer() {
+/**
+ * Gets the operands (the numbers) and the operator (plus, minus etc)
+ * directly from the dom, and returns the correct answer.
+ */
+function calculateCorrectAnswer() {
+
+    let operand1 = parseInt(document.getElementById('operand1').innerText);
+    let operand2 = parseInt(document.getElementById('operand2').innerText);
+    let operator = document.getElementById("operator").innerText;
+
+    if (operator === "+") {
+        return [operand1 + operand2, "addition"];
+    } else {
+        alert(`Unimplemented operator ${operator}`);
+        throw `Unimplemented operator ${operator}. Aborting!`;
+    }
 
 }
 
+/**
+ * Gets the operands (the numbers) and the operator (plus, minus etc)
+ * directly from the dom, and returns the correct answer.
+ */
 function calculateCorrectAnswer() {
+
+    let operand1 = parseInt(document.getElementById('operand1').innerText);
+    let operand2 = parseInt(document.getElementById('operand2').innerText);
+    let operator = document.getElementById("operator").innerText;
+
+    if (operator === "+") {
+        return [operand1 + operand2, "addition"];
+    } else {
+        alert(`Unimplemented operator ${operator}`);
+        throw `Unimplemented operator ${operator}. Aborting!`;
+    }
 
 }
 
